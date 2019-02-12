@@ -1,17 +1,22 @@
 package com.indev.cryptocurrency.exchange;
 
-import java.util.HashMap;
 
 public class Customer {
-    private HashMap<String,Integer> cryptocurrencies = new HashMap<>();
-    private int balance;
 
-    public Customer withCryptocurrency(String cryptocurrency, int quantity) {
-        if(cryptocurrencies.get(cryptocurrency)==null)
-            cryptocurrencies.put(cryptocurrency,quantity);
-        else
-            cryptocurrencies.replace(cryptocurrency,cryptocurrencies.get(cryptocurrency)+quantity);
+    private Currency currency;
+    private int balance=0;
+    private int quantityCurrency=0;
+
+    public Customer withCryptocurrency(String currency, int quantityCurrency) {
+        this.currency = new Currency();
+        this.currency.setName(currency);
+        this.quantityCurrency = quantityCurrency;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return new CustomerParser().parseCustomer(this);
     }
 
     public Customer withBalance(int balance) {
@@ -19,16 +24,36 @@ public class Customer {
         return this;
     }
 
-    public HashMap<String, Integer> getCryptocurrencies() {
-        return cryptocurrencies;
+    public Currency getCurrency() {
+        return currency;
     }
 
     public int getBalance() {
         return balance;
     }
 
-    @Override
-    public String toString() {
-        return CustomerDisplayer.displayCustomer(this);
+    public void reduceBalance(int balance){
+        this.balance -= balance;
     }
+    public  void augmentBalance(int balance){
+        this.balance += balance;
+    }
+
+    public Customer setCurrency(Currency currency,int quantityCurrency){
+        if( this.currency==null) this.currency = currency;
+        if(this.currency.getName().equals(currency.getName()))
+            this.quantityCurrency = quantityCurrency;
+        else
+            this.quantityCurrency += quantityCurrency;
+
+
+
+        return this;
+    }
+
+    public int getQuantityCurrency() {
+        return quantityCurrency;
+    }
+
+
 }
