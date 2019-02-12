@@ -1,5 +1,5 @@
 [![Build Status](https://img.shields.io/travis/MalyanaSkyrim/cryptocurrency-exchange.svg?style=flat)](https://travis-ci.org/MalyanaSkyrim/cryptocurrency-exchange)
-[![codecov](https://img.shields.io/codecov/c/github/MalyanaSkyrim/cryptocurrency-exchange.svg?style=flat)](https://codecov.io/gh/MalyanaSkyrim/cryptocurrency-exchange/update_of_project)
+[![codecov](https://img.shields.io/codecov/c/github/MalyanaSkyrim/cryptocurrency-exchange.svg?style=flat)](https://codecov.io/gh/MalyanaSkyrim/cryptocurrency-exchange/branch/master)
 
 Cryptocurrency Exchange Test
 -----
